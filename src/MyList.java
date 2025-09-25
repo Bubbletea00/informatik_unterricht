@@ -1,7 +1,7 @@
 public class MyList<T> {
 
 
-    //generische Item klasse für die einzelnen Elemente
+    //generische Item Klasse für die einzelnen Elemente
     private static class Item<T>{
         T data;
         Item<T> nextItem;
@@ -55,21 +55,21 @@ public class MyList<T> {
         for (int i = 0; i < index; i++) {
             current = current.getNexItem();
         }
-        return current.data;
+        return current.getData();
     }
 
     public T getFirst(){
-        return head.data;
+        return head.getData();
     }
 
     public T getLast(){
         Item<T> current = head;
 
         for (int i = 0; i < size-1; i++) {
-            current = current.nextItem;
+            current = current.getNexItem();
         }
 
-        return current.data;
+        return current.getData();
     }
 
     public void remove(int index){
@@ -91,6 +91,7 @@ public class MyList<T> {
         size--;
     }
 
+    @SuppressWarnings("unused")
     public void removeFirst(){
         this.remove(0);
     }
@@ -99,7 +100,7 @@ public class MyList<T> {
         this.remove(size-1);
     }
 
-
+    @SuppressWarnings("unused")
     public int getSize(){
         return size;
     }
@@ -110,9 +111,9 @@ public class MyList<T> {
         StringBuilder sb = new StringBuilder("[");
         Item<T> current = head;
         while (current!=null){
-            sb.append(current.data);
-            if (current.nextItem !=null) sb.append(", ");
-            current = current.nextItem;
+            sb.append(current.getData());
+            if (current.getNexItem() !=null) sb.append(", ");
+            current = current.getNexItem();
         }
         sb.append("]");
 
