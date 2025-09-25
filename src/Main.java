@@ -1,9 +1,28 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
-        Test t = new Test();
-        t.output();
-        t.sum(22);
+
+
+
+        MyList<String> bob = new MyList<>();
+        bob.add("manfred");
+        bob.add("fred");
+        bob.add("anna");
+        System.out.println(bob.get(0));
+        System.out.println(bob.get(1));
+        System.out.println(bob.get(2));
+        System.out.println(bob.getFirst());
+        System.out.println(bob.getLast());
+        System.out.println(bob.get(2));
+        bob.removeLast();
+        System.out.println(bob);
+
+        bob.remove(1);
+        System.out.println(bob);
+
+        bob.removeLast();
+        System.out.println(bob);
+
     }
 }
 
