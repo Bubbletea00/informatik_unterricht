@@ -17,13 +17,16 @@ public class Main {
         bob.removeLast();
         System.out.println(bob);
 
-        bob.remove(1);
+//        bob.remove(1);
         System.out.println(bob);
 
-        bob.removeLast();
+//        bob.removeLast();
         System.out.println(bob);
 
-        bob.add("mara",3);
+        System.out.println(bob.getSize());
+
+        bob.add("mara",1);
+        System.out.println(bob);
 
     }
 }

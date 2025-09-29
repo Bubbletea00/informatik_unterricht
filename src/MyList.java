@@ -11,7 +11,7 @@ public class MyList<T> {
             this.nextItem = null;
         }
 
-        public Item<T> getNexItem(){
+        public Item<T> getNextItem(){
             return nextItem;
         }
 
@@ -37,8 +37,8 @@ public class MyList<T> {
             Item<T> temp = new Item<>(value);
             Item<T> current = head;
 
-            while (current.getNexItem() != null) {
-                current = current.getNexItem();
+            while (current.getNextItem() != null) {
+                current = current.getNextItem();
             }
             current.setNextItem(temp);
         }
@@ -47,14 +47,22 @@ public class MyList<T> {
     }
 
     public void add(T value, int index){
-        if(index +1 > size) throw new IndexOutOfBoundsException("Invalid Index"); //todo index length
+//        if(index  > size) throw new IndexOutOfBoundsException("Invalid Index"); //todo index length
         Item<T> temp = new Item<>(value);
         Item<T> current = head;
 
-        if (current.getNexItem() != null){
-            for (int i = 0; i <index; i++) {
-                current = current.getNexItem();
+        Item<T> next = null;
+
+        if (current.getNextItem() != null){
+            for (int i = 0; i <index-1; i++) {
+                current = current.getNextItem();
+//                System.out.println(current.getNextItem().getData());
             }
+//            System.out.println(current.getData());
+//            System.out.println(current.getNextItem().getData());
+            next = current.getNextItem();
+            current.getNextItem().setNextItem(next);
+//            System.out.println(current.getNextItem().getData());
             current.setNextItem(temp);
         }
     }
@@ -65,7 +73,7 @@ public class MyList<T> {
         Item<T> current = head;
 
         for (int i = 0; i < index; i++) {
-            current = current.getNexItem();
+            current = current.getNextItem();
         }
         return current.getData();
     }
@@ -78,7 +86,7 @@ public class MyList<T> {
         Item<T> current = head;
 
         for (int i = 0; i < size-1; i++) {
-            current = current.getNexItem();
+            current = current.getNextItem();
         }
 
         return current.getData();
@@ -91,13 +99,13 @@ public class MyList<T> {
         Item<T> current = head;
 
         if(index==0){
-            head = current.getNexItem();
+            head = current.getNextItem();
         } else {
 
             for (int i = 0; i < index-1; i++) {
-                current = current.getNexItem();
+                current = current.getNextItem();
             }
-            current.setNextItem(current.getNexItem().getNexItem());
+            current.setNextItem(current.getNextItem().getNextItem());
 
         }
         size--;
@@ -122,8 +130,8 @@ public class MyList<T> {
         Item<T> current = head;
         while (current!=null){
             sb.append(current.getData());
-            if (current.getNexItem() !=null) sb.append(", ");
-            current = current.getNexItem();
+            if (current.getNextItem() !=null) sb.append(", ");
+            current = current.getNextItem();
         }
         sb.append("]");
 
