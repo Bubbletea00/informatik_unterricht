@@ -19,7 +19,6 @@ public class MyList<T> {
             this.nextItem = nextItem;
         }
 
-        @SuppressWarnings("unused")
         public T getData(){
             return data;
         }
@@ -47,8 +46,21 @@ public class MyList<T> {
 
     }
 
+    public void add(T value, int index){
+        if(index +1 > size) throw new IndexOutOfBoundsException("Invalid Index"); //todo index length
+        Item<T> temp = new Item<>(value);
+        Item<T> current = head;
+
+        if (current.getNexItem() != null){
+            for (int i = 0; i <index; i++) {
+                current = current.getNexItem();
+            }
+            current.setNextItem(temp);
+        }
+    }
+
     public T get(int index) {
-        if(index >= size) throw new IndexOutOfBoundsException("Invalid Index");
+        if(index >= size) throw new IndexOutOfBoundsException("Invalid Index"); //todo index length
 
         Item<T> current = head;
 
@@ -91,7 +103,6 @@ public class MyList<T> {
         size--;
     }
 
-    @SuppressWarnings("unused")
     public void removeFirst(){
         this.remove(0);
     }
@@ -100,7 +111,6 @@ public class MyList<T> {
         this.remove(size-1);
     }
 
-    @SuppressWarnings("unused")
     public int getSize(){
         return size;
     }

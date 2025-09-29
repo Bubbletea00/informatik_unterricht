@@ -23,6 +23,8 @@ public class Main {
         bob.removeLast();
         System.out.println(bob);
 
+        bob.add("mara",3);
+
     }
 }
 
