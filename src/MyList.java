@@ -51,18 +51,13 @@ public class MyList<T> {
         Item<T> temp = new Item<>(value);
         Item<T> current = head;
 
-        Item<T> next = null;
 
         if (current.getNextItem() != null){
             for (int i = 0; i <index-1; i++) {
                 current = current.getNextItem();
-//                System.out.println(current.getNextItem().getData());
+
             }
-//            System.out.println(current.getData());
-//            System.out.println(current.getNextItem().getData());
-            next = current.getNextItem();
-            current.getNextItem().setNextItem(next);
-//            System.out.println(current.getNextItem().getData());
+            temp.setNextItem(current.getNextItem());
             current.setNextItem(temp);
         }
     }
@@ -129,7 +124,7 @@ public class MyList<T> {
         StringBuilder sb = new StringBuilder("[");
         Item<T> current = head;
         while (current!=null){
-            sb.append(current.getData());
+            sb.append(current.getData().toString());
             if (current.getNextItem() !=null) sb.append(", ");
             current = current.getNextItem();
         }
