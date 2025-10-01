@@ -26,7 +26,10 @@ public class Main {
         System.out.println(bob.getSize());
 
         bob.add("mara",1);
+        bob.add("test",2);
+        bob.add("letzter", 4);
         System.out.println(bob);
+
 
     }
 }
