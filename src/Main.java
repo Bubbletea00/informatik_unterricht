@@ -26,25 +26,8 @@ public class Main {
         System.out.println(bob.getSize());
 
         bob.add("mara",1);
-        bob.add("test",2);
-        bob.add("letzter", 4);
         System.out.println(bob);
 
-
-
-        MyList<Patient> patientList= new MyList<>();
-
-
-
-        patientList.add(new Patient("Adam"));
-        patientList.add(new Patient("Eva"));
-        patientList.add(new Patient("Schlange"));
-
-        System.out.println(patientList);
-
-        patientList.removeFirst();
-
-        System.out.println("patientList = " + patientList);
     }
 }
 
