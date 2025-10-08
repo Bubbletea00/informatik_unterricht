@@ -27,7 +27,8 @@ public class Main {
 
         bob.add("mara",1);
         System.out.println(bob);
-
+        System.out.println("bob.getSize() = " + bob.getSize());
+        System.out.println("bob.countAllItems() = " + bob.countAllItems());
     }
 }
 

@@ -23,11 +23,34 @@ public class MyList<T> {
             return data;
         }
 
+        public int getRestLength(){
+            if (nextItem==null){
+                return 1;
+            } else{
+                return nextItem.getRestLength() + 1;
+            }
+        }
+
     }
 
     //Erstes Element, head
     private Item<T> head;
     int size = 0;
+
+    public int countAllItems(){
+//        int i = 0;
+//
+//        Item<T> head2 = head;
+//
+//        while(head2 != null) {
+//            head2 = head2.getNextItem();
+//            i++;
+//        }
+//
+//        return i;
+
+        return head.getRestLength();
+    }
 
     public void add(T value) {
         if (head == null) {
