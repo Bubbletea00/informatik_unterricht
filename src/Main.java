@@ -18,7 +18,7 @@ public class Main {
         System.out.println(bob);
 
 //        bob.remove(1);
-        System.out.println(bob);
+//        System.out.println(bob);
 
 //        bob.removeLast();
         System.out.println(bob);
@@ -27,8 +27,8 @@ public class Main {
 
         bob.add("mara",1);
         System.out.println(bob);
-        System.out.println("bob.getSize() = " + bob.getSize());
-        System.out.println("bob.countAllItems() = " + bob.countAllItems());
+        bob.removeByName("manfred");
+        System.out.println(bob);
     }
 }
 
