@@ -26,4 +26,9 @@ public class Tail implements ListenElement{
     public int getSize() {
         return 0;
     }
+
+    @Override
+    public String getData() {
+        return "";
+    }
 }

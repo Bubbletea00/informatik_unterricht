@@ -16,8 +16,23 @@ public class NumberList {
 
     public void addLast(Number number){
         var element = new Node(number);
-        head.addLast(number);
+        head.addLast(element);
     }
 
 
+    @Override
+    public String toString() {
+
+        //TODO fix dis shit
+        StringBuilder sb = new StringBuilder("[");
+        ListenElement current = head;
+        while (current.getClass() != Tail.class){
+            sb.append(head.getData());
+            if (head.getFollower().getClass() != Tail.class) sb.append(", ");
+            current = head.getFollower();
+        }
+        sb.append("]");
+
+        return sb.toString();
+    }
 }

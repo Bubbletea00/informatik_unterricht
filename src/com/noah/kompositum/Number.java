@@ -11,4 +11,8 @@ public class Number {
         System.out.println(number);
     }
 
+    public int getNumber(){
+        return number;
+    }
+
 }

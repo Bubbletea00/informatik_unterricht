@@ -8,4 +8,6 @@ public interface ListenElement {
 
     ListenElement addLast(ListenElement e);
     int getSize();
+
+    String getData();
 }

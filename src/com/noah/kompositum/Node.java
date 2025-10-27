@@ -32,4 +32,11 @@ public class Node implements ListenElement{
     public int getSize() {
         return 1 + follower.getSize();
     }
+
+    @Override
+    public String getData() {
+        return String.valueOf(data.getNumber());
+    }
+
+
 }
