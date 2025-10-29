@@ -32,6 +32,10 @@ public class List {
     }
 
     public void addSorted(Patient p){
+        head = head.addSorted(p);
+    }
 
+    public Node removeLast(){
+        return head.removeLast();
     }
 }

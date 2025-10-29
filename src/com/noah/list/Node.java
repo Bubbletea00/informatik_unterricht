@@ -35,7 +35,14 @@ public class Node extends ListElement{
         return getFollower().addSorted(p);
     }
 
+    @Override
+    public Node removeLast() {
+        if (getFollower() instanceof Node) return ((Node) getFollower()).removeLast();
+        return null; //todo finish
+    }
+
     protected boolean isAtSortedPlace(String name){
+        assert this.data != null;
         return this.data.getName().compareTo(name) > 0;
     }
 }

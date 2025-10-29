@@ -20,6 +20,7 @@ public abstract class ListElement {
     public abstract Node addLast(Patient p);
     public abstract Patient search(String name);
     public abstract ListElement addSorted(Patient p);
+    public abstract Node removeLast();
 
 
 
