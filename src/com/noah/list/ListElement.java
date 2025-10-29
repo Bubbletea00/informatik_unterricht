@@ -18,5 +18,9 @@ public abstract class ListElement {
 
     public abstract Patient getData();
     public abstract Node addLast(Patient p);
+    public abstract Patient search(String name);
+    public abstract ListElement addSorted(Patient p);
+
+
 
 }

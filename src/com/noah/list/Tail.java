@@ -16,4 +16,14 @@ public class Tail extends ListElement {
     public Node addLast(Patient p) {
         return new Node(p, this);
     }
+
+    @Override
+    public Patient search(String name) {
+        return null;
+    }
+
+    @Override
+    public ListElement addSorted(Patient p) {
+        return null;
+    }
 }

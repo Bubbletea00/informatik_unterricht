@@ -22,4 +22,16 @@ public class List {
     }
     public void addLast(Patient p){
     }
+
+    public Patient search(String name){
+        return head.search(name);
+    }
+
+    public void deleteList(){
+        head = new Tail();
+    }
+
+    public void addSorted(Patient p){
+
+    }
 }

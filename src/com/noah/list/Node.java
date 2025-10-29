@@ -23,5 +23,20 @@ public class Node extends ListElement{
     public void setData(Patient data) {
         this.data = data;
     }
+
+    public Patient search(String name){
+        if (data.isEqual(name)) return data;
+        return getFollower().search(name);
+    }
+
+    @Override
+    public ListElement addSorted(Patient p) {
+        if(isAtSortedPlace(p.getName())) return new Node(p, this);
+        return getFollower().addSorted(p);
+    }
+
+    protected boolean isAtSortedPlace(String name){
+        return this.data.getName().compareTo(name) > 0;
+    }
 }
 
