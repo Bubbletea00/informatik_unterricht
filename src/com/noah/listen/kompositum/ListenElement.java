@@ -1,4 +1,4 @@
-package com.noah.kompositum;
+package com.noah.listen.kompositum;
 
 public interface ListenElement {
     void printData();

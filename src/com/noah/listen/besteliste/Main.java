@@ -1,10 +1,12 @@
+package com.noah.listen.besteliste;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
 
 
 
-//        MyList<String> bob = new MyList<>();
+//        com.noah.listen.besteliste.MyList<String> bob = new com.noah.listen.besteliste.MyList<>();
 //        bob.add("manfred");
 //        bob.add("fred");
 //        bob.add("anna");

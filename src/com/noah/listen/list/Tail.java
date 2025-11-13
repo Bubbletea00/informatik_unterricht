@@ -1,4 +1,4 @@
-package com.noah.list;
+package com.noah.listen.list;
 
 public class Tail extends ListElement {
 
@@ -24,6 +24,11 @@ public class Tail extends ListElement {
 
     @Override
     public ListElement addSorted(Patient p) {
+        return null;
+    }
+
+    @Override
+    public Node removeLast() {
         return null;
     }
 }

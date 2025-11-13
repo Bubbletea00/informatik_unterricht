@@ -1,4 +1,4 @@
-package com.noah.list;
+package com.noah.listen.list;
 
 public class Patient {
     public Patient(Patient data, ListElement follower) {
