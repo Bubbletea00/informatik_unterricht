@@ -5,11 +5,11 @@ public class Main {
         FileReadAndWrite f = new FileReadAndWrite();
         f.tryCatch();
 
-        f.printFileStatus();
-
-        f.writeUsingBufferedWriter();
-        f.readUsingBufferedReader();
-
-        f.printShrekWhatCount();
+//        f.printFileStatus();
+//
+//        f.writeUsingBufferedWriter();
+//        f.readUsingBufferedReader();
+//
+//        f.printShrekWhatCount();
     }
 }
