@@ -5,53 +5,59 @@ import java.io.*;
 public class FileReadAndWrite {
     public static void main(String[] args) {
         FileReadAndWrite f = new FileReadAndWrite();
+        f.tryCatch();
+
+
+        if (f.file.exists()) {
+            System.out.println("Datei existiert bereits");
+        } else {
+            System.out.println("Datei wird erstellt");
+        }
 
         f.writeUsingBufferedWriter();
-
         System.out.println(f.readUsingBufferedReader());
 
-//        f.tryCatch();
+
     }
 
 
     private String path = "res/test.txt";
     private String content = "Hello World\r\nabc\r\nd";
 
-    private File f = new File(path);
+    private File file = new File(path);
 
     public void writeUsingBufferedWriter() {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(path));
 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))){
             writer.write(content);
-            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println("error with the BufferedWriter");
         }
     }
 
-    public String readUsingBufferedReader(){
-        String fileContent = null;
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(path));
-            String line;
 
-            while ((line = reader.readLine()) != null){
+    public String readUsingBufferedReader(){
+        StringBuilder sb = new StringBuilder();
+
+        // try-with-resources
+        try (BufferedReader b = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = b.readLine()) != null) {
                 System.out.println(line);
-                fileContent = line + System.getProperty("line.separator");
+                sb.append(line).append(System.lineSeparator());
             }
 
-            reader.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+        }catch (IOException e){
+            System.err.println("error with the BufferedReader");
         }
-        return fileContent;
+        return sb.toString();
     }
 
     public void tryCatch(){
         try {
-            int[] myNumbers = {1, 2, 3};
-            System.out.println(myNumbers[10]);
+            //Füge hier deinen Code ein
         } catch (Exception e) {
             System.out.println("Something went wrong.");
         } finally {
