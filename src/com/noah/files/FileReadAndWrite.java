@@ -1,6 +1,11 @@
 package com.noah.files;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 //Aufgabe 1: Füge unter try{} Code hinzu, der einen Fehler verursacht.
@@ -21,7 +26,7 @@ public class FileReadAndWrite {
 
     public void tryCatch() {
         try {
-            //Füge hier deinen Code ein
+            //Füge hier deinen fehlerhaften Code ein (Aufgabe 1)
         } catch (Exception e) {
             System.out.println("Something went wrong.");
         } finally {
@@ -48,15 +53,21 @@ public class FileReadAndWrite {
         }
     }
 
+    //Aufgabe 3*: Hier muss noch ein return String implementiert werden.
     public void readUsingBufferedReader() {
-        StringBuilder sb = new StringBuilder();
+        String text = "";
+//        StringBuilder sb = new StringBuilder();
 
         // try-with-resources
         try (BufferedReader b = new BufferedReader(new FileReader(path))) {
             String line;
+
             while ((line = b.readLine()) != null) {
-                sb.append(line).append(System.lineSeparator());
+                text = text + System.lineSeparator() + line;
             }
+//            while ((line = b.readLine()) != null) {
+//                sb.append(line).append(System.lineSeparator());
+//            }
 
 
         } catch (IOException e) {
@@ -64,7 +75,8 @@ public class FileReadAndWrite {
             System.err.println("error with the BufferedReader");
         }
 
-        System.out.println(sb.toString());
+        System.out.println(text);
+//        System.out.println(sb.toString());
     }
 
     /**
@@ -75,12 +87,13 @@ public class FileReadAndWrite {
         String shrekScriptPath = "res/shrek_script.txt";
         int count = 0;
 
+        //Eigenen Code hier einfügen (Aufgabe 2).
 
-        System.out.println("Es gibt " + count + " Zeilen, in denen What? vorkommt.");
+        System.out.println("Es gibt " + count + " Zeilen, in denen \"What?\" vorkommt.");
     }
 
     /**
-     * Diese Methode gibt 'true' zurück, wenn in der Line der searchString vorkommt.
+     * Diese Methode gibt 'true' zurück, wenn searchString in der line vorkommt.
      */
     private boolean searchLine(String searchString, String line) {
         return line.contains(searchString);
