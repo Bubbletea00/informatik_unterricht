@@ -64,10 +64,8 @@ public class FileReadAndWrite {
 
             while ((line = b.readLine()) != null) {
                 text = text + System.lineSeparator() + line;
-            }
-//            while ((line = b.readLine()) != null) {
 //                sb.append(line).append(System.lineSeparator());
-//            }
+            }
 
 
         } catch (IOException e) {
