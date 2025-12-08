@@ -27,3 +27,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+
+### meins
+/.idea/dictionaries/noahh.xml
+.idea/discord.xml
+lösung.txt

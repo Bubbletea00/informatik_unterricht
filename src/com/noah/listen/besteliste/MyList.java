@@ -1,17 +1,19 @@
+package com.noah.listen.besteliste;
+
 public class MyList<T> {
 
 
     //generische Item Klasse für die einzelnen Elemente
-    private static class Item<T>{
+    private static class Item<T> {
         T data;
         Item<T> nextItem;
 
-        Item(T data){
+        Item(T data) {
             this.data = data;
             this.nextItem = null;
         }
 
-        public Item<T> getNextItem(){
+        public Item<T> getNextItem() {
             return nextItem;
         }
 
@@ -19,15 +21,52 @@ public class MyList<T> {
             this.nextItem = nextItem;
         }
 
-        public T getData(){
+        public T getData() {
             return data;
         }
 
-    }
+        public int getRestLength() {
+            if (nextItem == null) {
+                return 1;
+            } else {
+                return nextItem.getRestLength() + 1;
+            }
+        }
 
-    //Erstes Element, head
+        public boolean removeItemByString(String name) {
+            if (nextItem != null) {
+                String nextItemName = nextItem.getData().toString();
+                System.out.println("Name des nachfolgers:" + nextItemName);
+
+                if (nextItemName.equals(name)) {
+
+                    setNextItem(nextItem.getNextItem());
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+    }
+            //Erstes Element, head
     private Item<T> head;
     int size = 0;
+
+    public int countAllItems(){
+//        int i = 0;
+//
+//        Item<T> head2 = head;
+//
+//        while(head2 != null) {
+//            head2 = head2.getNextItem();
+//            i++;
+//        }
+//
+//        return i;
+
+        return head.getRestLength();
+    }
 
     public void add(T value) {
         if (head == null) {
@@ -106,6 +145,10 @@ public class MyList<T> {
         size--;
     }
 
+    public void removeByName(String name) {
+        head.removeItemByString(name);
+    }
+
     public void removeFirst(){
         this.remove(0);
     }
@@ -133,3 +176,4 @@ public class MyList<T> {
         return sb.toString();
     }
 }
+
