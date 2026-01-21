@@ -85,9 +85,21 @@ public class FileReadAndWrite {
         String shrekScriptPath = "res/shrek_script.txt";
         int count = 0;
 
-        //Eigenen Code hier einfügen (Aufgabe 2).
+        try (BufferedReader b = new BufferedReader(new FileReader(shrekScriptPath))) {
+            String line;
+            while ((line = b.readLine()) != null) {
+                String lowerCaseLine = line.toLowerCase();
 
-        System.out.println("Es gibt " + count + " Zeilen, in denen \"What?\" vorkommt.");
+                if (searchLine("what?", lowerCaseLine)) {
+                    count++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("error with the BufferedReader");
+        }
+
+        System.out.println("Es gibt " + count + " Zeilen, in denen What? vorkommt.");
     }
 
     /**
